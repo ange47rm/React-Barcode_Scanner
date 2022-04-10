@@ -25,16 +25,15 @@ const BarcodeScannerContainer = () => {
         console.log("Orders:", orders);},[]) 
 }
 
-const orderNodes = orders.map(song => {
+const orderNodes = orders.map(orderLine => {
     return (
-        (<SongDetails 
-            loaded={loaded} 
-            artist= {song["im:artist"].label} 
-            title={song["im:name"].label} 
-            key={song.id.attributes["im:id"]} 
-            image={song["im:image"][2].label}
-            preview={song.link[1].attributes.href}>
-
-            </SongDetails>)
+        (<OrderLineComponent 
+            // loaded={loaded} 
+            // artist= {song["im:artist"].label} 
+            // title={song["im:name"].label} 
+            // key={song.id.attributes["im:id"]} 
+            // image={song["im:image"][2].label}
+            orderNo={orderLine.description}>
+            </OrderLineComponent>)
     )
 })
