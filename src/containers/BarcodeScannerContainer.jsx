@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect} from "react";
+import {OrderLineComponent} from '../components';
 
 const BarcodeScannerContainer = () => {
 
@@ -25,7 +26,7 @@ const BarcodeScannerContainer = () => {
         console.log("Orders:", orders);},[]) 
 }
 
-const orderNodes = orders.map(orderLine => {
+const orderNodes = this.orders.map(orderLine => {
     return (
         (<OrderLineComponent 
             // loaded={loaded} 
@@ -37,3 +38,5 @@ const orderNodes = orders.map(orderLine => {
             </OrderLineComponent>)
     )
 })
+
+export default BarcodeScannerContainer;
