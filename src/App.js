@@ -1,6 +1,6 @@
-import logo from './logo.svg';
+import React from 'react';
+import BarcodeScannerContainer from './containers/BarcodeScannerContainer'
 import './App.css';
-import {BarcodeScannerContainer} from './containers';
 
 function App() {
   return (
