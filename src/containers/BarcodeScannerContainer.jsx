@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import OrderComponent from '../components/OrderComponent';
+import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
+
+import BarcodeScannerComponent from '../components/BarcodeScannerComponent';
+import HeaderComponent from '../components/HeaderComponent';
+import ScannedOrdersComponent from '../components/ScannedOrdersComponent';
+import HelpComponent from '../components/HelpComponent';
+
 
 const BarcodeScannerContainer = () => {
 
@@ -8,38 +14,28 @@ const BarcodeScannerContainer = () => {
 
     async function fetchOrders() {
         await fetch("./orders.json")
-          .then(res => res.json())
-          .then((data) => {
-            setOrders(data);
-            setLoaded(true);
-          })
-      }
+            .then(res => res.json())
+            .then((data) => {
+                setOrders(data);
+                setLoaded(true);
+            })
+    }
 
     useEffect(() => {
         fetchOrders();
-      }, []);
-
-    
-
-    const orderNodes = orders.map(order => {
-        return (
-            <OrderComponent orderNo={order.orderNo} key={order.objId} orderLines={order.orderLines} />
-        )
-    })
-
-    if (!loaded) {
-        return (
-            <>
-                <h1>Orders</h1>
-                <p>Loading orders...</p>
-            </>)
-    }
+    }, []);
 
     return (
+    <Router>
         <>
-            <h1>Orders</h1>
-            {orderNodes}
+            <HeaderComponent />
+            <Switch>
+                <Route exact path="/" render={() => <BarcodeScannerComponent orders={orders} loaded={loaded}/>}/>
+                <Route path="/scanned-orders" component={ScannedOrdersComponent} />
+                <Route path="/help" component={HelpComponent} />
+            </Switch>
         </>
+    </Router>
     )
 }
 
