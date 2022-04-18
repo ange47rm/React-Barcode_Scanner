@@ -26,16 +26,14 @@ const BarcodeScannerContainer = () => {
     }, []);
 
     return (
-    <Router>
-        <>
+        <Router>
             <HeaderComponent />
             <Switch>
-                <Route exact path="/" render={() => <BarcodeScannerComponent orders={orders} loaded={loaded}/>}/>
-                <Route path="/scanned-orders" component={ScannedOrdersComponent} />
-                <Route path="/help" component={HelpComponent} />
+                <Route exact path="/" element={<BarcodeScannerComponent orders={orders} loaded={loaded} />} />
+                <Route path="/scanned-orders" element={<ScannedOrdersComponent />} />
+                <Route path="/help" element={<HelpComponent />} />
             </Switch>
-        </>
-    </Router>
+        </Router>
     )
 }
 

@@ -8,19 +8,20 @@ body {
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Barlow', sans-serif;
 }
 
 ul {
   list-style-type: none;
+  margin: 0
 }
 
 #navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: white;
   padding: 10px;
+  background-color: white;
 }
 
 #header {

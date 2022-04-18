@@ -16,7 +16,7 @@ const HeaderComponent = () => {
                         <Link to="/" className="navlink">Barcode Scanner</Link>
                     </li>
                     <li>
-                        <Link to='/new-user' className="navlink">Scanned Orders</Link>
+                        <Link to='/scanned-orders' className="navlink">Scanned Orders</Link>
                     </li>
                     <li>
                         <Link to='/help' className="navlink">Help</Link>
