@@ -11,6 +11,8 @@ const BarcodeScannerContainer = () => {
 
     const [orders, setOrders] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const [barcode, setBarcode] = useState('');     // the barcode that the BarcodeScannerComponent component will "pass up"
+
 
     async function fetchOrders() {
         await fetch("./orders.json")
@@ -21,6 +23,7 @@ const BarcodeScannerContainer = () => {
             })
     }
 
+
     useEffect(() => {
         fetchOrders();
     }, []);
@@ -29,7 +32,7 @@ const BarcodeScannerContainer = () => {
         <Router>
             <HeaderComponent />
             <Switch>
-                <Route exact path="/" element={<BarcodeScannerComponent orders={orders} loaded={loaded} />} />
+                <Route exact path="/" element={<BarcodeScannerComponent orders={orders} loaded={loaded} captureBarcode={inputBarcode => setBarcode(inputBarcode)}/>} />
                 <Route path="/scanned-orders" element={<ScannedOrdersComponent />} />
                 <Route path="/help" element={<HelpComponent />} />
             </Switch>

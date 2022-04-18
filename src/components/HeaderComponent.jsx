@@ -13,13 +13,13 @@ const HeaderComponent = () => {
             <nav>
                 <ul id='navbar'>
                     <li>
-                        <Link to="/" className="navlink">Barcode Scanner</Link>
+                        <Link to="/" className="navlink">BARCODE SCANNER</Link>
                     </li>
                     <li>
-                        <Link to='/scanned-orders' className="navlink">Scanned Orders</Link>
+                        <Link to='/scanned-orders' className="navlink">SCANNED ORDERS</Link>
                     </li>
                     <li>
-                        <Link to='/help' className="navlink">Help</Link>
+                        <Link to='/help' className="navlink">HELP</Link>
                     </li>
                 </ul>
             </nav>

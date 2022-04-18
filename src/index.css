@@ -3,17 +3,30 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to bottom right, rgb(28, 39, 97), rgb(78, 89, 145));
+  background-image: linear-gradient(to bottom right, rgb(19, 37, 18), rgb(47, 87, 45));
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Barlow', sans-serif !important;
+  color: white;
 }
 
 ul {
   list-style-type: none;
   margin: 0
+}
+
+.whiteText {
+  color: white;
+}
+
+.navlink {
+  text-decoration: none;
+}
+
+#barcodeInput {
+  width: 30%;
 }
 
 #navbar {
