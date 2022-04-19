@@ -1,9 +1,8 @@
-import {React, useState} from 'react';
-import OrderComponent from './OrderComponent';
+import { React, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
-const BarcodeScannerComponent = ({ orders, loaded, captureBarcode }) => {
+const BarcodeScannerComponent = ({ captureBarcode, loading }) => {
 
     const [inputBarcode, setInputBarcode] = useState('');
 
@@ -18,31 +17,28 @@ const BarcodeScannerComponent = ({ orders, loaded, captureBarcode }) => {
         event.preventDefault();             // ... prevent the page from being refreshed...
         captureBarcode(inputBarcode);           // ... run captureVin using the inputVin ...
         event.target.reset();               // ... and finally reset form field.
-    } 
-
-
-    if (!loaded) {
-        return (
-            <>
-                <h1>Orders</h1>
-                <p>Loading orders...</p>
-            </>)
     }
+
+    const renderSubmitButton = () => {
+        if (loading) {
+            return <Button loading={true} variant="warning" type="submit">Fetching Order... <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></Button>
+        } else {
+            return <Button loading={false} variant="warning" type="submit">Submit</Button>
+        }
+      }
 
     return (
         <>
-            <Form className='whiteText' onSubmit={handleBarcodeSubmit}>
-                <Form.Group className="mb-3">
-                    <Form.Label>Scan/Enter a barcode</Form.Label>
-                    <Form.Control id="barcodeInput" type="text" placeholder="Barcode" onChange={e => setInputBarcode(e.target.value)} required />
-                </Form.Group>
+            <div id="barcodeScanner">
+                <Form className="whiteText d-grid gap-2" onSubmit={handleBarcodeSubmit}>
+                    <Form.Group className="mb-3" id="barcodeInput">
+                        <h2>Enter Customer Order No.</h2>
+                        <Form.Control type="text" placeholder="Customer Order No." onChange={e => setInputBarcode(e.target.value)} required />
+                    </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
-
-            <h2  className='whiteText'> {inputBarcode}</h2>
+                    {renderSubmitButton()}
+                </Form>
+            </div>
         </>
     )
 }
