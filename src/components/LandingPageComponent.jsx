@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import OrderDetailsComponent from './OrderDetailsComponent'
+import OrderLinesComponent from './OrderLinesComponent'
 
-const BarcodeScannerComponent = ({ captureOrderNo, loading, customerOrder }) => {
+const LandingPageComponent = ({ captureOrderNo, loading, customerOrder }) => {
 
     const [inputOrderNo, setInputOrderNo] = useState('');
 
@@ -23,9 +24,13 @@ const BarcodeScannerComponent = ({ captureOrderNo, loading, customerOrder }) => 
 
     const showCustomerOrderDetails = () => {
         if (customerOrder) {
-            return (
-                <OrderDetailsComponent customerOrder={customerOrder}></OrderDetailsComponent>
-            )
+            return <OrderDetailsComponent customerOrder={customerOrder}></OrderDetailsComponent>
+        }
+    }
+
+    const showOrderLines = () => {
+        if (customerOrder && customerOrder.orderLines.length > 0) {
+            return <OrderLinesComponent orderLines={customerOrder.orderLines}></OrderLinesComponent>
         }
     }
 
@@ -42,12 +47,16 @@ const BarcodeScannerComponent = ({ captureOrderNo, loading, customerOrder }) => 
                         {renderSubmitButton()}
                     </Form>
                 </div>
-                <div>
-                    {showCustomerOrderDetails()}
-                </div>
+                {customerOrder &&
+                    <div id='order-mgmt'>
+                        {showCustomerOrderDetails()}
+                        
+                        <div id='order-lines'>{showOrderLines()} </div>
+                    </div>
+                }
             </div>
         </>
     )
 }
 
-export default BarcodeScannerComponent;
+export default LandingPageComponent;

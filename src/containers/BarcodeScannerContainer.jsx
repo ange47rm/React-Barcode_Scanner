@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes as Switch } from "react-router-dom";
-import BarcodeScannerComponent from '../components/BarcodeScannerComponent';
+import LandingPageComponent from '../components/LandingPageComponent';
 import HeaderComponent from '../components/HeaderComponent';
 import HelpComponent from '../components/HelpComponent';
 import ScannedOrdersComponent from '../components/ScannedOrdersComponent';
@@ -38,7 +38,7 @@ const BarcodeScannerContainer = () => {
         <Router>
             <HeaderComponent />
             <Switch>
-                <Route exact path="/" element={<BarcodeScannerComponent captureOrderNo={retrieveCustomerOrder} loading={loading} customerOrder={validOrder} />} />
+                <Route exact path="/" element={<LandingPageComponent captureOrderNo={retrieveCustomerOrder} loading={loading} customerOrder={validOrder} />} />
                 <Route path="/scanned-orders" element={<ScannedOrdersComponent />} />
                 <Route path="/help" element={<HelpComponent />} />
             </Switch>
