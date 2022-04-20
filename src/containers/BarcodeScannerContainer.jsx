@@ -22,7 +22,6 @@ const BarcodeScannerContainer = () => {
                 for (let order of data) {
                     if (inputOrderNo === order.orderNo) {
                         setValidOrder(order);
-                        console.log(validOrder);
                     }
                 }
             })
