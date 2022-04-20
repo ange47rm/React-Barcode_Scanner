@@ -3,12 +3,15 @@
     "orderNo":"ANG001",
     "customer": {
        "fullName": "Angelo Di Massimo",
-       "address": "Weir Street",
-       "houseNo": "35",
-       "postalCode": "FK81FH",
-       "country": "Scotland",
        "phoneNo": "+447580905197",
-       "emailAddress": "angelo@hotmail.com"
+       "emailAddress": "angelo@hotmail.com",
+       "companyName": null,
+       "address":{
+          "houseNo": "35",
+          "street": "Weir Street",
+          "postalCode": "FK81FH",
+          "country": "Scotland"
+       }
     },
     "dateOrdered": "08/05/2022",
     "orderLines":[
@@ -40,13 +43,15 @@
     "orderNo":"ANG002",
     "customer": {
       "fullName": "Matteo Montani",
-      "address": "Via del Pollo Sacro",
-      "houseNo": "666",
-      "postalCode": "00146",
-      "country": "Italy",
       "phoneNo": "+393475953217",
-      "emailAddress": "matteo.m@libero.it"
-      
+      "emailAddress": "matteo.m@libero.it",
+      "companyName": "A2T Sciop",
+      "address":{
+         "houseNo": "666",
+         "street": "Via del Pollo Sacro",
+         "postalCode": "00146",
+         "country": "Italy"
+      }
    },
    "dateOrdered": "04/03/2022",
     "orderLines":[
@@ -71,12 +76,15 @@
     "orderNo":"ANG003",
     "customer": {
       "fullName": "Super Mario",
-      "address": "Mushroom Road",
-      "houseNo": "123",
-      "postalCode": "10050",
-      "country": "Japan",
       "phoneNo": "+798456123",
-      "emailAddress": "supermario@gmail.jp"
+      "emailAddress": "supermario@gmail.jp",
+      "companyName": "Nintendo",
+      "address":{
+         "houseNo": "123",
+         "street": "Mushroom Road",
+         "postalCode": "10050",
+         "country": "Japan"
+      }
    },
    "dateOrdered": "11/06/2022",
     "orderLines":[

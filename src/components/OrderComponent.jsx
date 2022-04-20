@@ -1,7 +1,7 @@
 import React from "react";
 import OrderLineComponent from './OrderLineComponent';
 
-const OrderComponent = ({ orderNo, orderLines }) => {
+const OrderComponent = ({ orderLines }) => {
 
     const orderLinesNodes = orderLines.map(orderLine => {
         return (
@@ -11,7 +11,6 @@ const OrderComponent = ({ orderNo, orderLines }) => {
 
     return (
         <>
-            <h3>Order No: {orderNo}</h3>
             {orderLinesNodes}
         </>
     )

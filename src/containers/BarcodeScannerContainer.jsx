@@ -10,7 +10,7 @@ const BarcodeScannerContainer = () => {
     const [loaded, setLoaded] = useState(false);
     const [loading, setLoading] = useState(false);
     const [inputOrderNo, setInputOrderNo] = useState('');
-    const [barcode, setBarcode] = useState('');             // the barcode that the BarcodeScannerComponent component will "pass up"
+    const [barcode, setBarcode] = useState('');
     const [validOrder, setValidOrder] = useState(undefined);
 
     async function fetchOrder(inputOrderNo) {
@@ -32,14 +32,13 @@ const BarcodeScannerContainer = () => {
         inputOrderNo.trim();
         setInputOrderNo(inputOrderNo);// needed?
         fetchOrder(inputOrderNo);
-
     }
 
     return (
         <Router>
             <HeaderComponent />
             <Switch>
-                <Route exact path="/" element={<BarcodeScannerComponent captureBarcode={retrieveCustomerOrder} loading={loading} />} />
+                <Route exact path="/" element={<BarcodeScannerComponent captureOrderNo={retrieveCustomerOrder} loading={loading} customerOrder={validOrder} />} />
                 <Route path="/scanned-orders" element={<ScannedOrdersComponent />} />
                 <Route path="/help" element={<HelpComponent />} />
             </Switch>
