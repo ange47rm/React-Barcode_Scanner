@@ -1,6 +1,16 @@
 [{
     "objId":"001",
     "orderNo":"ANG001",
+    "customer": {
+       "fullName": "Angelo Di Massimo",
+       "address": "Weir Street",
+       "houseNo": "35",
+       "postalCode": "FK81FH",
+       "country": "Scotland",
+       "phoneNo": "+447580905197",
+       "emailAddress": "angelo@hotmail.com"
+    },
+    "dateOrdered": "08/05/2022",
     "orderLines":[
        {
           "objId":"101",
@@ -28,6 +38,17 @@
  {
     "objId":"002",
     "orderNo":"ANG002",
+    "customer": {
+      "fullName": "Matteo Montani",
+      "address": "Via del Pollo Sacro",
+      "houseNo": "666",
+      "postalCode": "00146",
+      "country": "Italy",
+      "phoneNo": "+393475953217",
+      "emailAddress": "matteo.m@libero.it"
+      
+   },
+   "dateOrdered": "04/03/2022",
     "orderLines":[
        {
           "objId":"201",
@@ -48,6 +69,16 @@
  {
     "objId":"003",
     "orderNo":"ANG003",
+    "customer": {
+      "fullName": "Super Mario",
+      "address": "Mushroom Road",
+      "houseNo": "123",
+      "postalCode": "10050",
+      "country": "Japan",
+      "phoneNo": "+798456123",
+      "emailAddress": "supermario@gmail.jp"
+   },
+   "dateOrdered": "11/06/2022",
     "orderLines":[
        {
           "objId":"301",
