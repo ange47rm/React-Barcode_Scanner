@@ -4,7 +4,7 @@ import { Checkmark } from 'react-checkmark'
 const OrderLinesComponent = ({ orderLines }) => {
 
     const orderLineNodes = orderLines.map((orderLine) => {
-        return <p>{orderLine.scanned.toString()} - {orderLine.partNo} - {orderLine.description} - {orderLine.price}€</p>
+        return <p key={orderLine.objId}><input type="checkbox" readOnly checked={orderLine.scanned}></input> {orderLine.partNo} - {orderLine.description} - {orderLine.price}€</p>
     })
 
     return (

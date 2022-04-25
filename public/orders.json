@@ -17,7 +17,7 @@
     "orderLines":[
        {
           "objId":"101",
-          "scanned":false,
+          "scanned":true,
           "partNo":"X001",
           "description":"BTG Fanny Pack",
           "price":25
@@ -31,7 +31,7 @@
        },
        {
           "objId":"103",
-          "scanned":false,
+          "scanned":true,
           "partNo":"X003",
           "description":"Armanov Maniglia Ergonomica Rotante",
           "price":39

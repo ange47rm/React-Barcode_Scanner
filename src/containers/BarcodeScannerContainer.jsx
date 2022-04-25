@@ -34,11 +34,29 @@ const BarcodeScannerContainer = () => {
         fetchOrder(inputOrderNo);
     }
 
-    return (
+    function scanBarcode (inputBarcode) {
+        inputOrderNo.trim();
+        setBarcode(inputBarcode);
+        
+        for (let index = 0; index < validOrder.orderLines.length; index++) {
+            if (inputBarcode === validOrder.orderLines[index].objId) {                                                                     // THIS WILL NEED TO BE orderLine.barcode
+                let updatedValidOrder = {...validOrder}
+                updatedValidOrder.orderLines[index].scanned = !updatedValidOrder.orderLines[index].scanned;             // change scanned property from "true" to "false" or vice versa
+                setValidOrder(updatedValidOrder);
+            }
+            else {
+                console.log(`Barcode does not match any of the products on Order No "${validOrder.orderNo}".`)
+            }
+        }
+    }
+
+
+
+return (
         <Router>
             <HeaderComponent />
             <Switch>
-                <Route exact path="/" element={<LandingPageComponent captureOrderNo={retrieveCustomerOrder} loading={loading} customerOrder={validOrder} />} />
+                <Route exact path="/" element={<LandingPageComponent captureOrderNo={retrieveCustomerOrder} loading={loading} customerOrder={validOrder} scanBarcode={scanBarcode} />} />
                 <Route path="/scanned-orders" element={<ScannedOrdersComponent />} />
                 <Route path="/help" element={<HelpComponent />} />
             </Switch>

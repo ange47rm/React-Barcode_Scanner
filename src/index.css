@@ -17,8 +17,18 @@ ul {
   margin: 0
 }
 
+.box {
+  box-shadow: 7px 7px 7px black;
+}
+
+
 .whiteText {
   color: white;
+}
+
+.button {
+  text-align: center;
+  box-shadow: 3px 3px 3px black;
 }
 
 .navlink {
@@ -26,6 +36,10 @@ ul {
   color: black;
   font-weight: bolder;
   padding: 13px;
+}
+
+.centered {
+  text-align: center;
 }
 
 #navbar {
@@ -36,17 +50,10 @@ ul {
   background-color: white;
 }
 
-#customerOrderInput {
+#inputFields {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-}
-
-#submitButton {
-  color: #000;
-  background-color: #ffc107;
-  border-color: #ffc107;
-  width: -webkit-fill-available;
+  justify-content: space-around;
 }
 
 #header {
@@ -62,7 +69,7 @@ ul {
   color: white;
 }
 
-#barcodeScannerImage{
+#barcodeScannerImage {
   max-height: 200px;
   max-width: auto;
   padding: 20px;
@@ -73,7 +80,12 @@ ul {
   margin-top: 5%;
   background-color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 15px;
+  margin: 10px;
+}
+
+#orderNoField {
+  margin: 10px 10px 50px 10px;
 }
 
 #order-mgmt {
