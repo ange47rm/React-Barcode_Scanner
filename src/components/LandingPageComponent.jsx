@@ -46,7 +46,7 @@ const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarc
                 <div className='container'>
                     <div className='row'>
                         <div className='col'>
-                            <Form className="whiteText d-grid gap-2" id='orderNoField' onSubmit={handleOrderNoSubmit}>
+                            <Form className="whiteText" id='orderNoField' onSubmit={handleOrderNoSubmit}>
                                 <Form.Group className="mb-3">
                                     <h3>Enter Customer Order No.</h3>
                                     <Form.Control type="text" placeholder="Customer Order No." onChange={e => setInputOrderNo(e.target.value)} required />
@@ -54,15 +54,15 @@ const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarc
                                 {renderSubmitButton()}
                             </Form>
                         </div>
-                        {customerOrder &&
-                            <div id='order-mgmt' className='col'>
-                                {showCustomerOrderDetails()}
-                            </div>
-                        }
                     </div>
 
                     {customerOrder &&
                         <div className='row'>
+                            {customerOrder &&
+                                <div id='order-mgmt' className='col'>
+                                    {showCustomerOrderDetails()}
+                                </div>
+                            }
                             <div className='col'>
                                 <BarcodeScannerComponent customerOrder={customerOrder} scanBarcode={scanBarcode} loading={loading} />
                             </div>
