@@ -50,8 +50,6 @@ const BarcodeScannerContainer = () => {
         }
     }
 
-
-
 return (
         <Router>
             <HeaderComponent />
@@ -60,7 +58,9 @@ return (
                 <Route path="/scanned-orders" element={<ScannedOrdersComponent />} />
                 <Route path="/help" element={<HelpComponent />} />
             </Switch>
+            <footer><p className="centered" id="copyright">Copyright © 2022 Angelo Di Massimo. All rights reserved.</p></footer>
         </Router>
+
     )
 }
 

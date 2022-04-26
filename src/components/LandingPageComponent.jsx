@@ -43,24 +43,35 @@ const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarc
     return (
         <>
             <div id="main-screen">
-                <div id="inputFields">
-                    <Form className="whiteText d-grid gap-2" id='orderNoField' onSubmit={handleOrderNoSubmit}>
-                        <Form.Group className="mb-3">
-                            <h3>Enter Customer Order No.</h3>
-                            <Form.Control type="text" placeholder="Customer Order No." onChange={e => setInputOrderNo(e.target.value)} required />
-                        </Form.Group>
-                        {renderSubmitButton()}
-                    </Form>
+                <div className='container'>
+                    <div id="inputFields" className='row'>
+                        <div className='col'>
+                            <Form className="whiteText d-grid gap-2" id='orderNoField' onSubmit={handleOrderNoSubmit}>
+                                <Form.Group className="mb-3">
+                                    <h3>Enter Customer Order No.</h3>
+                                    <Form.Control type="text" placeholder="Customer Order No." onChange={e => setInputOrderNo(e.target.value)} required />
+                                </Form.Group>
+                                {renderSubmitButton()}
+                            </Form>
+                        </div>
+                        {customerOrder &&
+                            <div className='col'>
+                                <BarcodeScannerComponent customerOrder={customerOrder} scanBarcode={scanBarcode} loading={loading} />
+                            </div>
+                        }
+                    </div>
+
                     {customerOrder &&
-                        <BarcodeScannerComponent customerOrder={customerOrder} scanBarcode={scanBarcode} loading={loading} />
+                        <div className='row'>
+                            <div id='order-mgmt' className='col'>
+                                {showCustomerOrderDetails()}
+                            </div>
+                            <div className='col'>
+                                <div id='order-lines' className='box'>{showOrderLines()}</div>
+                            </div>
+                        </div>
                     }
                 </div>
-                {customerOrder &&
-                    <div id='order-mgmt'>
-                        {showCustomerOrderDetails()}
-                        <div id='order-lines' className='box'>{showOrderLines()}</div>
-                    </div>
-                }
             </div>
         </>
     )
