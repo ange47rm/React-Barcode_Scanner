@@ -44,7 +44,7 @@ const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarc
         <>
             <div id="main-screen">
                 <div className='container'>
-                    <div id="inputFields" className='row'>
+                    <div className='row'>
                         <div className='col'>
                             <Form className="whiteText d-grid gap-2" id='orderNoField' onSubmit={handleOrderNoSubmit}>
                                 <Form.Group className="mb-3">
@@ -55,16 +55,16 @@ const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarc
                             </Form>
                         </div>
                         {customerOrder &&
-                            <div className='col'>
-                                <BarcodeScannerComponent customerOrder={customerOrder} scanBarcode={scanBarcode} loading={loading} />
+                            <div id='order-mgmt' className='col'>
+                                {showCustomerOrderDetails()}
                             </div>
                         }
                     </div>
 
                     {customerOrder &&
                         <div className='row'>
-                            <div id='order-mgmt' className='col'>
-                                {showCustomerOrderDetails()}
+                            <div className='col'>
+                                <BarcodeScannerComponent customerOrder={customerOrder} scanBarcode={scanBarcode} loading={loading} />
                             </div>
                             <div className='col'>
                                 <div id='order-lines' className='box'>{showOrderLines()}</div>

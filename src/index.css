@@ -50,10 +50,6 @@ ul {
   background-color: white;
 }
 
-#inputFields {
-  margin: 10px 10px 50px 10px;
-}
-
 #header {
   padding: 10px;
   background-color: black;
@@ -61,6 +57,11 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+#customerOrderSection {
+  display: flex;
+  flex-direction: row;
 }
 
 #app-title {
@@ -88,9 +89,7 @@ ul {
 }
 
 #copyright {
-  margin: 50px 15px 15px 15px;
   color: #ffc126;
-  position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
