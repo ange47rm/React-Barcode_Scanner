@@ -20,21 +20,24 @@
           "scanned":true,
           "partNo":"X001",
           "description":"BTG Fanny Pack",
-          "price":25
+          "price":25,
+          "barcode": "978020137962"
        },
        {
           "objId":"102",
           "scanned":false,
           "partNo":"X002",
           "description":"Armanov Supporto Asta Inneschi",
-          "price":8.8
+          "price":8.8,
+          "barcode": "978053247962"
        },
        {
           "objId":"103",
           "scanned":true,
           "partNo":"X003",
           "description":"Armanov Maniglia Ergonomica Rotante",
-          "price":39
+          "price":39,
+          "barcode": "978053245317"
        }
     ]
  },
@@ -60,14 +63,16 @@
           "scanned":false,
           "partNo":"Y001",
           "description":"Helikon-Tex Competition Triple Carbine Insert",
-          "price":19.5
+          "price":19.5,
+          "barcode": "364303245317"
        },
        {
           "objId":"202",
           "scanned":false,
           "partNo":"Y002",
           "description":"Tasmanian Tiger QR SK Anfibia Plate Carrier",
-          "price":139
+          "price":139,
+          "barcode": "874303245972"
        }
     ]
  },
@@ -93,28 +98,32 @@
           "scanned":false,
           "partNo":"Z001",
           "description":"UTG Ultra Slim Handstop M-LOK",
-          "price":15
+          "price":15,
+          "barcode": "774803245317"
        },
        {
           "objId":"302",
           "scanned":false,
           "partNo":"Z002",
           "description":"BCM M-LOK Picatinny Rail Section Nylon Black 3in.",
-          "price":23
+          "price":23,
+          "barcode": "974309963317"
        },
        {
           "objId":"303",
           "scanned":false,
           "partNo":"Z003",
           "description":"Leatherman Raptor Emergency Medical Scissor",
-          "price":29
+          "price":29,
+          "barcode": "974853145317"
        },
        {
           "objId":"304",
           "scanned":false,
           "partNo":"Z004",
           "description":"Leatherman Surge Silver Multitool Premium Holster",
-          "price":85
+          "price":85,
+          "barcode": "78945645317"
        }
     ]
  }

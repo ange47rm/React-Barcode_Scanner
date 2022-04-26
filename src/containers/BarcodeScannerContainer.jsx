@@ -39,7 +39,7 @@ const BarcodeScannerContainer = () => {
         setBarcode(inputBarcode);
         
         for (let index = 0; index < validOrder.orderLines.length; index++) {
-            if (inputBarcode === validOrder.orderLines[index].objId) {                                                                     // THIS WILL NEED TO BE orderLine.barcode
+            if (inputBarcode === validOrder.orderLines[index].barcode) {                                                                     // THIS WILL NEED TO BE orderLine.barcode
                 let updatedValidOrder = {...validOrder}
                 updatedValidOrder.orderLines[index].scanned = !updatedValidOrder.orderLines[index].scanned;             // change scanned property from "true" to "false" or vice versa
                 setValidOrder(updatedValidOrder);
