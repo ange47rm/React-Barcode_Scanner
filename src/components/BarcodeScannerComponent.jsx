@@ -14,18 +14,30 @@ const BarcodeScannerComponent = ({ customerOrder, scanBarcode, loading }) => {
 
     const renderSubmitButton = () => {
         if (loading) {
-            return <Button loading={true} variant="warning" className='button' type="submit"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Validating Barcode...</Button>
+            return (
+                <>
+                    <div className='centered'>
+                        <Button loading={true} variant="warning" className='button' id='submitBtn' type="submit"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Validating Barcode...</Button>
+                    </div>
+                </>
+            )
         } else {
-            return <Button loading={false} variant="warning" className='button' type="submit">Submit Barcode</Button>
+            return (
+                <>
+                    <div className='centered'>
+                        <Button loading={false} variant="warning" className='button' id='submitBtn' type="submit">Submit Barcode</Button>
+                    </div>
+                </>
+            )
         }
     }
 
     return (
         <>
-            <div id='order-scanning'>
-                <Form className="whiteText d-grid gap-2" onSubmit={handleBarcodeScan}>
-                    <Form.Group className="mb-3">
-                        <h3>Scan/Enter Barcode</h3>
+            <div>
+                <Form className="whiteText" onSubmit={handleBarcodeScan}>
+                    <Form.Group className="mb-3 centered">
+                        <h1>Scan/Enter Barcode</h1>
                         <Form.Control type="text" placeholder="(Example: 978020137962)" onChange={event => setInputBarcode(event.target.value)} required />
                     </Form.Group>
                     {renderSubmitButton()}

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button'
-import OrderDetailsComponent from './OrderDetailsComponent'
-import OrderLinesComponent from './OrderLinesComponent'
+import Button from 'react-bootstrap/Button';
+import OrderDetailsComponent from './OrderDetailsComponent';
+import OrderLinesComponent from './OrderLinesComponent';
 import BarcodeScannerComponent from './BarcodeScannerComponent';
 
 
@@ -16,11 +16,29 @@ const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarc
         event.target.reset();
     }
 
+    const renderOrderNoField = () => {
+        if (!customerOrder) {
+            return (
+                <>
+                    <div id='orderNoField'>
+                        <Form className="whiteText" onSubmit={handleOrderNoSubmit}>
+                            <Form.Group className="mb-3 centered">
+                                <h1>Enter Customer Order No.</h1>
+                                <Form.Control type="text" onChange={e => setInputOrderNo(e.target.value)} required />
+                            </Form.Group>
+                            {renderSubmitButton()}
+                        </Form>
+                    </div>
+                </>
+            )
+        }
+    }
+
     const renderSubmitButton = () => {
         if (loading) {
-            return <Button loading={true} variant="warning" className='button' type="submit"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Fetching Order...</Button>
+            return <Button loading={true} variant="warning" className='button' id='submitBtn' type="submit"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Fetching Order...</Button>
         } else {
-            return <Button loading={false} variant="warning" className='button' type="submit">Submit Order No.</Button>
+            return <Button loading={false} variant="warning" className='button' id='submitBtn' type="submit">Submit Order No.</Button>
         }
     }
 
@@ -43,35 +61,15 @@ const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarc
     return (
         <>
             <div id="main-screen">
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col'>
-                            <Form className="whiteText" id='orderNoField' onSubmit={handleOrderNoSubmit}>
-                                <Form.Group className="mb-3">
-                                    <h3>Enter Customer Order No.</h3>
-                                    <Form.Control type="text" placeholder="Customer Order No." onChange={e => setInputOrderNo(e.target.value)} required />
-                                </Form.Group>
-                                {renderSubmitButton()}
-                            </Form>
-                        </div>
-                    </div>
+                {renderOrderNoField()}
 
                     {customerOrder &&
-                        <div className='row'>
-                            {customerOrder &&
-                                <div id='order-mgmt' className='col'>
-                                    {showCustomerOrderDetails()}
-                                </div>
-                            }
-                            <div className='col'>
-                                <BarcodeScannerComponent customerOrder={customerOrder} scanBarcode={scanBarcode} loading={loading} />
-                            </div>
-                            <div className='col'>
-                                <div id='order-lines' className='box'>{showOrderLines()}</div>
-                            </div>
+                        <div id="scanning-area">
+                            {showCustomerOrderDetails()}
+                            < BarcodeScannerComponent customerOrder={customerOrder} scanBarcode={scanBarcode} loading={loading} />
+                            <div id='order-lines' className='box'>{showOrderLines()}</div>
                         </div>
                     }
-                </div>
             </div>
         </>
     )

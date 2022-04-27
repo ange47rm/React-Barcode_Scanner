@@ -1,4 +1,5 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
 
 const OrderDetailsComponent = ({customerOrder}) => {
 
@@ -13,6 +14,9 @@ const OrderDetailsComponent = ({customerOrder}) => {
                     <p>Phone: {customerOrder.customer.phoneNo}</p>
                     <p>Email: {customerOrder.customer.emailAddress}</p>
                     <p>Date ordered: {customerOrder.dateOrdered}</p>
+                    <div className='centered'>
+                        <Button variant="danger" className="button">Clear Order No.</Button>
+                    </div>
                 </div>
             </>
         )
