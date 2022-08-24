@@ -1,7 +1,14 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 
-const OrderDetailsComponent = ({customerOrder}) => {
+const OrderDetailsComponent = ({customerOrder, setCustomerOrder}) => {
+
+
+    const handleClearOrderNo = () => {
+        if (customerOrder) {
+            setCustomerOrder(undefined)
+        }
+    }
 
     if (customerOrder) {
         return (
@@ -15,7 +22,7 @@ const OrderDetailsComponent = ({customerOrder}) => {
                     <p>Email: {customerOrder.customer.emailAddress}</p>
                     <p>Date ordered: {customerOrder.dateOrdered}</p>
                     <div className='centered'>
-                        <Button variant="danger" className="button">Clear Order No.</Button>
+                        <Button variant="danger" className="button" onClick={handleClearOrderNo()}>Clear Order No.</Button>
                     </div>
                 </div>
             </>

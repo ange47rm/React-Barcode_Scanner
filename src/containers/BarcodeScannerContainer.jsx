@@ -83,7 +83,7 @@ const BarcodeScannerContainer = () => {
                 <div>{showErrorAlert()}</div>
             }
             <Switch>
-                <Route exact path="/" element={<LandingPageComponent captureOrderNo={retrieveCustomerOrder} loading={loading} customerOrder={customerOrder} scanBarcode={scanBarcode} />} />
+                <Route exact path="/" element={<LandingPageComponent captureOrderNo={retrieveCustomerOrder} loading={loading} customerOrder={customerOrder} setCustomerOrder={setCustomerOrder} scanBarcode={scanBarcode} />} />
                 <Route path="/scanned-orders" element={<ScannedOrdersComponent />} />
                 <Route path="/help" element={<HelpComponent />} />
             </Switch>

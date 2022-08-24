@@ -6,7 +6,7 @@ import OrderLinesComponent from './OrderLinesComponent';
 import BarcodeScannerComponent from './BarcodeScannerComponent';
 
 
-const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarcode, showErrorAlert, hideErrorAlert }) => {
+const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, setCustomerOrder, scanBarcode, showErrorAlert, hideErrorAlert }) => {
 
     const [inputOrderNo, setInputOrderNo] = useState('');
 
@@ -44,7 +44,7 @@ const LandingPageComponent = ({ captureOrderNo, loading, customerOrder, scanBarc
 
     const showCustomerOrderDetails = () => {
         if (customerOrder) {
-            return <OrderDetailsComponent customerOrder={customerOrder}></OrderDetailsComponent>
+            return <OrderDetailsComponent customerOrder={customerOrder} setCustomerOrder={setCustomerOrder}></OrderDetailsComponent>
         }
     }
 
